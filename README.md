@@ -3,7 +3,7 @@ templenv reads golang template files and outputs the result to stdout. From ther
 
 there are some (only two atm) useful functions you can use:
 - `env "<NAME>"`: returns the value of the environment variable with the name <NAME>
-- `exec "<CMD>"`: executes the cmd in a bash shell retrieves the stdout and strips the final EOL character
+- `exec "<CMD>"`: executes the cmd in a bash shell, retrieves the stdout and strips the final EOL character
 
 # examples
 
