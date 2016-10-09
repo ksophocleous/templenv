@@ -1,6 +1,5 @@
 # templenv
-templenv reads golang template files and outputs the result to either stdout or
-to a file (if `-outfile <filename>` is provided).
+templenv reads golang template files and outputs the result to stdout. From there you can pipe it wherever you want.
 
 there are some (only two atm) useful functions you can use:
 - `env "<NAME>"`: returns the value of the environment variable with the name <NAME>

@@ -11,8 +11,6 @@ import (
 	"strings"
 )
 
-var outfile = flag.String("outfile", "-", "path to output filename")
-
 func toStrings(args []interface{}) []string {
 	result := []string{}
 	for _, v := range args {
@@ -71,15 +69,6 @@ func main() {
 		"exec": execCommand,
 	}
 
-	of := os.Stdout
-	if *outfile != "-" {
-		of, err = os.Create(*outfile)
-		if err != nil {
-			fmt.Fprintf(os.Stderr, "ERROR: Failed to open output file '%s' because '%s'\n", *outfile, err.Error())
-		}
-		defer of.Close()
-	}
-
 	content, err := ioutil.ReadFile(infile)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "ERROR: Failed to read file '%s' because '%s'\n", infile, err.Error())
@@ -92,7 +81,7 @@ func main() {
 		os.Exit(2)
 	}
 
-	err = templ.Execute(of, struct{}{})
+	err = templ.Execute(os.Stdout, struct{}{})
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "ERROR: Template execution failed '%s'\n", err.Error())
 	}
