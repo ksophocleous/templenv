@@ -4,11 +4,11 @@ import (
 	"bytes"
 	"flag"
 	"fmt"
-	"html/template"
 	"io/ioutil"
 	"os"
 	"os/exec"
 	"strings"
+	"text/template"
 )
 
 func toStrings(args []interface{}) []string {
